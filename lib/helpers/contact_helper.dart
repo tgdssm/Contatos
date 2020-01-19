@@ -61,7 +61,7 @@ class ContactHelper{
 
   Future<int> updateContact(Contact contact) async{
     Database database = await db;
-    return await database.update(contactTable, contact.toMap(), where: "$idColumn = ? ", whereArgs: [contact.id]);
+    return await database.update(contactTable, contact.toMap(), where: "$idColumn = ?", whereArgs: [contact.id]);
   }
 
   Future<List> getAllContacts() async{

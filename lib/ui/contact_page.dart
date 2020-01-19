@@ -25,10 +25,13 @@ class _ContactPageState extends State<ContactPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    if(widget.contact == null)
+
+    if(widget.contact == null){
       _editedContact = Contact();
+    }
     else{
       _editedContact = Contact.fromMap(widget.contact.toMap());
+
       _controllerName.text = _editedContact.name;
       _controllerEmail.text = _editedContact.email;
       _controllerPhone.text = _editedContact.phone;
@@ -42,9 +45,9 @@ class _ContactPageState extends State<ContactPage> {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
-        if( _editedContact.phone != null && _editedContact.phone.isNotEmpty)
+        if(_editedContact.phone != null && _editedContact.phone.isNotEmpty){
           Navigator.pop(context, _editedContact);
-        else{
+        } else {
           FocusScope.of(context).requestFocus(_phoneFocus);
         }
       },
@@ -94,7 +97,7 @@ class _ContactPageState extends State<ContactPage> {
               decoration: InputDecoration(labelText: "Telefone"),
               onChanged: (phone){
                 _userEdited = true;
-                _editedContact.email = phone;
+                _editedContact.phone = phone;
               },
               maxLength: 11,
               maxLengthEnforced: true,

@@ -42,9 +42,6 @@ class _HomePageState extends State<HomePage> {
   }
   Widget _contactCard(BuildContext context, int index){
     return GestureDetector(
-      onTap: (){
-        _showContactPage(contact: contacts[index]);
-      },
       child: Card(
         child: Padding(padding: EdgeInsets.all(10),
           child: Row(
@@ -75,6 +72,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      onTap: (){
+        _showContactPage(contact: contacts[index]);
+      },
     );
   }
 
